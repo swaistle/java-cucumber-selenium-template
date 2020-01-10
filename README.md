@@ -66,3 +66,24 @@ generic version number to our properties and reference it in our dependencies:
          </dependencies>
 
 ```
+
+## Framework setup
+Now you have set up your pom file, you can now reimport your project as a Maven project and begin setting up your 
+framework.
+
+### .gitignore
+
+If committing your project to a git hosting site, then your first step should be to create a `.gitignore` within the 
+root of your repository like the example in the repository. Once created, you can commit your Maven repository. 
+
+### Folder structure
+Since these are tests, we only need a test folder. A typical layout is `src/test`, then we have a folder for our code 
+`java` and a folder for our resources aptly called `resources`. 
+
+After creating your structure you may need to amend your project structure settings in your IDE of choice, for example, 
+IntelliJ sometimes struggles knowing straight away which is your resources folder.
+
+### Page Object Model
+Best practice is to follow the `Page Object Model` when writing your code. This is where you split up your actions per
+page into it's own class. You can then call upon these actions individually in multiple step definitions. It makes your
+code reusable and easier to maintain if you only have one place to refactor any possible changes. 
