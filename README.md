@@ -87,3 +87,10 @@ IntelliJ sometimes struggles knowing straight away which is your resources folde
 Best practice is to follow the `Page Object Model` when writing your code. This is where you split up your actions per
 page into it's own class. You can then call upon these actions individually in multiple step definitions. It makes your
 code reusable and easier to maintain if you only have one place to refactor any possible changes. 
+
+### Driver setup
+Because we're using Maven, it means we can use a plugin that will handle our driver files. In this tutorial we use
+[Bonigarcia WebDriverManager](https://github.com/bonigarcia/webdrivermanager) as our driver manager. You can find out
+what the latest version is via the [Maven Repository](https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager).
+
+More details on the set up of the driver can be found within the files under [src/test/java/](/src/test/java/utils).

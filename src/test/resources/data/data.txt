@@ -1,0 +1,1 @@
+If your tests are needing to be data driven, you typically situate those files in their own folder under resources.
