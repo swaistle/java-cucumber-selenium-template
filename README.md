@@ -100,3 +100,45 @@ Once we have a driver set up, we will need to create a feature to, not only crea
 our driver is set up correctly!
 You can find more details on feature setup within the files under [src/test/resources/](feature-setup/src/test/resources)
 and [src/test/java/](feature-setup/src/test/java).
+
+### Running tests
+You have a scenario, now you want to run it... but how? There are multiple ways to do so and each have their own benefits
+to doing so depending on how it's going to be used. 
+
+#### Executing the command
+To run a test you need run a Maven command to tell the build what to do. The basic command we need is 
+`mvn -Dtest=<name of the test runner class> test`. 
+* We can run this in the terminal within the root of the repository.
+* Put the command in a shell script `.sh` and run that
+
+We can elaborate this command with arguments to control how our tests are executed via the `-D<name>` parameter; e.g. 
+which environment to run the tests on. This command is then typically called within CI pipelines such as GitLab's CI/CD 
+section or Jenkins to run the tests.
+
+If you use IntelliJ, you can also use their `Configuration` option to run your runner class. 
+
+![alt text](img/IntelliJConfiguration.png "IntelliJ Test Configuration")
+
+You can do this by either right clicking on the Test Runner class and clicking run (which will fail to run 
+because of the default settings IntelliJ populates, so you will need to edit it), or create your own from scratch.
+
+![alt text](img/IntelliJAddConfiguration.png "IntelliJ Test Add Configuration")
+
+We use JUnit in this framework to execute the class, so you add a JUnit configuration. Title the configuration 
+appropriately in the `Name:` field, and locate the runner class you want to execute in the `Class:` field.
+You need to make sure that the `Working directory:` field is blank, and that the `VM options:` field either contains the 
+arguments that are relevant to your test or remains blank. In the example screenshot above, we use an argument to 
+stipulate which environment we want to run our tests against `-Denvironment=<name>`. Once set up, we can click the `Run` 
+button.
+
+_Having the class set up within IntelliJ helps when needing to debug your tests._
+
+#### Cucumber tags
+You might have multiple different types of tests you want to run at different times. You can create a Test Runner
+for each type of test and assign a tag to it so it will only run that type of test for you. I typically create a:
+* Regression Runner
+* Smoke Runner
+* Work In Progress (WIP) Runner
+
+I then assign that Cucumber tag in my desired location within the feature file. A demonstration of this can be found in
+the runner classes and feature files.
