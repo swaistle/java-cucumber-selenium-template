@@ -93,4 +93,10 @@ Because we're using Maven, it means we can use a plugin that will handle our dri
 [Bonigarcia WebDriverManager](https://github.com/bonigarcia/webdrivermanager) as our driver manager. You can find out
 what the latest version is via the [Maven Repository](https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager).
 
-More details on the set up of the driver can be found within the files under [src/test/java/](/src/test/java/utils).
+More details on the set up of the driver can be found within the files under [src/test/java/](driver-setup/src/test/java/utils).
+
+### Feature setup
+Once we have a driver set up, we will need to create a feature to, not only create our scenario, but also test out that 
+our driver is set up correctly!
+You can find more details on feature setup within the files under [src/test/resources/](feature-setup/src/test/resources)
+and [src/test/java/](feature-setup/src/test/java).
